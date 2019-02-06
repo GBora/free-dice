@@ -1,0 +1,20 @@
+<div class="row">
+    <div id="btn-container">
+        <button class="btn" id="d-6" (click)="rollDice('d6')">
+            d6
+        </button>
+
+        <button class="btn" id="d-10" (click)="rollDice('d10')">
+            d10
+        </button>
+
+        <button class="btn" id="d-100" (click)="rollDice('d100')">
+            d100
+        </button>
+    </div>
+    <div id="rolls-container">
+        <div class="roll-result" *ngFor="let result of results">
+            {{result.type}}: {{ result.result }}
+        </div>
+    </div>
+</div>
