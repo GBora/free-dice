@@ -32,17 +32,17 @@
         "packageManager": "npm"
       },
       "electronWinstallerConfig": {
-        "name": "free_dice"
+        "name": "Free Dice"
       },
       "electronInstallerDebian": {},
       "electronInstallerRedhat": {},
       "github_repository": {
-        "owner": "",
-        "name": ""
+        "owner": "GBora",
+        "name": "free-dice"
       },
       "windowsStoreConfig": {
         "packageName": "",
-        "name": "freedice"
+        "name": "Free Dice"
       }
     }
   },

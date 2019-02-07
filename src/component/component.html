@@ -1,20 +1,48 @@
-<div class="row">
-    <div id="btn-container">
-        <button class="btn" id="d-6" (click)="rollDice('d6')">
-            d6
-        </button>
-
-        <button class="btn" id="d-10" (click)="rollDice('d10')">
-            d10
-        </button>
-
-        <button class="btn" id="d-100" (click)="rollDice('d100')">
-            d100
-        </button>
-    </div>
-    <div id="rolls-container">
-        <div class="roll-result" *ngFor="let result of results">
-            {{result.type}}: {{ result.result }}
+<div>
+        <div class="row">
+                <div id="btn-container">
+                    <button class="btn" id="d-2" (click)="rollDice('d2')">
+                            d2
+                    </button>
+            
+                    <button class="btn" id="d-4" (click)="rollDice('d4')">
+                        d4
+                    </button>
+            
+                    <button class="btn" id="d-6" (click)="rollDice('d6')">
+                        d6
+                    </button>
+            
+                    <button class="btn" id="d-8" (click)="rollDice('d8')">
+                        d8
+                    </button>
+            
+                    <button class="btn" id="d-10" (click)="rollDice('d10')">
+                        d10
+                    </button>
+            
+                    <button class="btn" id="d-12" (click)="rollDice('d12')">
+                        d12
+                    </button>
+            
+                    <button class="btn" id="d-20" (click)="rollDice('d20')">
+                        d20
+                    </button>
+            
+                    <button class="btn" id="d-100" (click)="rollDice('d100')">
+                        d100
+                    </button>
+                </div>
+                <div id="rolls-container">
+                    <div class="roll-result" *ngFor="let result of results; let i = index;">
+                       {{i+1}}) {{result.type}} rolled: {{ result.result }}
+                    </div>
+                </div>
         </div>
-    </div>
+
+        <div class="row">
+            <div class="custom-numeric">
+                
+            </div>
+        </div>
 </div>
