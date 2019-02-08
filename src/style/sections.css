@@ -1,0 +1,21 @@
+.section-header {
+	width: 100%;
+	height: 40px;
+	box-sizing: border-box !important;
+
+	padding: 10px;
+	color: #D6A01B;
+
+/*	border-bottom: 1px solid #D6A01B;*/
+	text-align: center;
+
+	cursor: pointer;
+}
+
+.header-non-top {
+	border-top: 1px solid #D6A01B;
+}
+
+.category-content {
+	border-top: 1px solid #D6A01B;
+}

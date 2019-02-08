@@ -10,6 +10,11 @@ import { DiceResult } from '../models/diceResult.model';
 export class AppComponent {
 
   public results: DiceResult[] = [];
+  public openCategory: string = 'dnd';
+
+  public setCategory(categoryName: string): void {
+    this.openCategory = categoryName;
+  }
 
   public rollDice(type: string): void {
     // Hate this
