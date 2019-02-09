@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DiceResult } from '../models/diceResult.model';
+import { CustomNumericDice } from '../models/customNumericDice.model';
 
 @Component({
   selector: 'App',
@@ -11,6 +12,7 @@ export class AppComponent {
 
   public results: DiceResult[] = [];
   public openCategory: string = 'dnd';
+  public customNumberDice: CustomNumericDice[] = [];
 
   public setCategory(categoryName: string): void {
     this.openCategory = categoryName;
