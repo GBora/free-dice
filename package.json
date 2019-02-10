@@ -52,6 +52,7 @@
     "@angular/core": "^2.4.10",
     "@angular/platform-browser": "^2.4.10",
     "@angular/platform-browser-dynamic": "^2.4.10",
+    "@types/vex-js": "^2.3.29",
     "electron-compile": "^6.4.4",
     "electron-devtools-installer": "^2.2.4",
     "electron-squirrel-startup": "^1.0.0",

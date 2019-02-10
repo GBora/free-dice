@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="category-content" [hidden]="openCategory != 'custom_dice'">
-                        <button class="btn" id="d-2" (click)="rollDice('d2')">
+                        <button class="btn" id="d-2" (click)="createRandomNumeric()">
                             Custom Numeric
                         </button>
                 
@@ -79,5 +79,27 @@
                     </div>
 
                 </div>
+        </div>
+
+        <div class="modal" [ngClass]="{'active': modalOpen}">
+            <div class="modal-content">
+              <div class="close-container">
+                <span class="close" (click)="closeModal()">&times;</span>
+              </div>
+              <div>
+                <div>
+                    Dice name: 
+                    <input type="text" name="custom_num_name">
+                </div>
+                <div>
+                    Dice minimum:
+                    <input type="number" min="1" name="custom_num_min" id="custom_num_min">
+                </div>
+                <div>
+                    Dice maximum:
+                    <input type="number" min="1" name="custom_num_max" id="custom_num_max">
+                </div>
+              </div>
+            </div>
         </div>
 </div>

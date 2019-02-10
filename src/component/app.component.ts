@@ -13,6 +13,7 @@ export class AppComponent {
   public results: DiceResult[] = [];
   public openCategory: string = 'dnd';
   public customNumberDice: CustomNumericDice[] = [];
+  public modalOpen: boolean = false;
 
   public setCategory(categoryName: string): void {
     this.openCategory = categoryName;
@@ -41,6 +42,14 @@ export class AppComponent {
 
   private randomNumber(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  public createRandomNumeric(): void {
+    this.modalOpen = true;
+  }
+
+  public closeModal(): void {
+    this.modalOpen = false;
   }
 }
 
