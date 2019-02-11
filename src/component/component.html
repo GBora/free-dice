@@ -50,13 +50,21 @@
                     </div>
 
                     <div class="category-content" [hidden]="openCategory != 'custom_dice'">
-                        <button class="btn" id="d-2" (click)="createRandomNumeric()">
+                        <button class="btn"
+                                *ngFor="let dice of customNumberDice; let i = index;"
+                                (click)="rollRandomNumeric(i)" >
+                            {{ dice.name }}
+                        </button>
+
+                        <button class="btn"
+                                (click)="createRandomNumeric()">
                             Custom Numeric
                         </button>
                 
-                        <button class="btn" id="d-100" (click)="rollDice('d100')">
+                        <button class="btn">
                             Custom Symbolic
                         </button>
+
                     </div>
 
                     <div class="section-header header-non-top" (click)="setCategory('dice_mechanics')">
@@ -86,19 +94,19 @@
               <div class="close-container">
                 <span class="close" (click)="closeModal()">&times;</span>
               </div>
-              <div>
+              <div id="custom-numeric-form">
                 <div>
-                    Dice name: 
-                    <input type="text" name="custom_num_name">
+                    <input type="text" name="custom_num_name" placeholder="Dice name" [(ngModel)]="custom_num_name">
                 </div>
                 <div>
-                    Dice minimum:
-                    <input type="number" min="1" name="custom_num_min" id="custom_num_min">
+                    <input min="1" type="number" name="custom_num_min" id="custom_num_min" placeholder="Minimum" [(ngModel)]="custom_num_min" >
                 </div>
                 <div>
-                    Dice maximum:
-                    <input type="number" min="1" name="custom_num_max" id="custom_num_max">
+                    <input type="number" min="1" name="custom_num_max" id="custom_num_max" placeholder="Maximum" [(ngModel)]="custom_num_max">
                 </div>
+                <button class="btn btn-200" (click)="saveRandomNumeric()">
+                    Create
+                </button>
               </div>
             </div>
         </div>

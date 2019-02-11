@@ -29,3 +29,7 @@
 .btn:last-child {
 	margin-bottom: 20px;
 }
+
+.btn-200 {
+	width: 200px;
+}

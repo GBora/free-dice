@@ -45,3 +45,19 @@
 	text-decoration: none;
 	cursor: pointer;
 }
+
+
+.modal input {
+	background: transparent;
+	width: 200px;
+	border: none !important;
+	border-bottom: 1px solid #D6A01B !important;
+	margin-left: 20px;
+	color: #D6A01B;
+	margin-top: 20px;
+	padding: 10px;
+}
+
+.modal input::placeholder {
+	color: #D6A01B;
+}
