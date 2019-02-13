@@ -37,11 +37,25 @@
 
                     <div class="category-content" [hidden]="openCategory != 'other_numeric'">
                         <button class="btn" id="d-2" (click)="rollDice('d2')">
-                                d2
+                            d2
                         </button>
                 
                         <button class="btn" id="d-100" (click)="rollDice('d100')">
                             d100
+                        </button>
+                    </div>
+
+                    <div class="section-header header-non-top" (click)="setCategory('other_numeric')">
+                        Symbolic Dice
+                    </div>
+
+                    <div class="category-content" [hidden]="openCategory != 'other_numeric'">
+                        <button class="btn" id="d-2" (click)="rollDice('d2')">
+                            Fudge
+                        </button>
+
+                        <button class="btn" id="d-2" (click)="rollDice('d2')">
+                            Coin
                         </button>
                     </div>
 
@@ -82,9 +96,10 @@
 
                 <div id="rolls-container">
 
-                    <div class="roll-result" *ngFor="let result of results; let i = index;">
-                       {{i+1}}) {{result.type}} rolled: {{ result.result }}
-                    </div>
+                    <result-row *ngFor="let result of results; let i = index;" 
+                                [result]="result"
+                                [index]="i">
+                    </result-row>
 
                 </div>
         </div>

@@ -1,19 +1,20 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { CustomSymbolicDice } from './../../models/customSymbolicDice.model';
 import { Component, OnInit } from '@angular/core';
-import { DiceResult } from '../models/diceResult.model';
-import { CustomNumericDice } from '../models/customNumericDice.model';
+import { DiceResult } from '../../models/diceResult.model';
+import { CustomNumericDice } from '../../models/customNumericDice.model';
 
 @Component({
   selector: 'App',
-  templateUrl: 'component/component.html'
+  templateUrl: 'components/app/app.html'
 })
 export class AppComponent implements OnInit {
 
   public results: DiceResult[] = [];
   public openCategory: string = 'dnd';
   public customNumberDice: CustomNumericDice[] = [];
+
+  //Fudge dice
+  public fudgeDice: CustomSymbolicDice = new CustomSymbolicDice('fudge', ['-', 'blank', '+'])
 
   //Modal fields
   public modalOpen: boolean = false;
@@ -83,10 +84,3 @@ export class AppComponent implements OnInit {
     this.modalOpen = false;
   }
 }
-
-@NgModule({
-  imports: [BrowserModule, FormsModule],
-  declarations: [AppComponent],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
