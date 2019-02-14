@@ -56,6 +56,22 @@ export class AppComponent implements OnInit {
     }
   }
 
+  private rollSymbolicDice(type: string): void {
+    let index: number = -9000;
+    let symbol: string = 'default symbol';
+
+    switch (type) {
+      case 'Fudge': index = this.randomNumber(0, this.fudgeDice.symbols.length - 1);
+                    symbol = this.fudgeDice.symbols[index];
+                    break;
+      default: console.warn('Invalid dice type ', type);
+    }
+
+    if (index != -9000) {
+      this.results.unshift(new DiceResult(type, index, 1, 0, false, symbol));
+    }
+  }
+
   private randomNumber(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }

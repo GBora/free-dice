@@ -45,16 +45,16 @@
                         </button>
                     </div>
 
-                    <div class="section-header header-non-top" (click)="setCategory('other_numeric')">
+                    <div class="section-header header-non-top" (click)="setCategory('other_symbolic')">
                         Symbolic Dice
                     </div>
 
-                    <div class="category-content" [hidden]="openCategory != 'other_numeric'">
-                        <button class="btn" id="d-2" (click)="rollDice('d2')">
+                    <div class="category-content" [hidden]="openCategory != 'other_symbolic'">
+                        <button class="btn" (click)="rollSymbolicDice('Fudge')">
                             Fudge
                         </button>
 
-                        <button class="btn" id="d-2" (click)="rollDice('d2')">
+                        <button class="btn" (click)="rollDice('d2')">
                             Coin
                         </button>
                     </div>

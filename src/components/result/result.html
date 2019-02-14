@@ -1,5 +1,10 @@
 <div class="roll-result">
     <div *ngIf="result">
-            {{index+1}}) {{result.type}} rolled: {{ result.result }}
+            <span *ngIf="result.isNumeric">
+                {{index+1}}) {{result.type}} rolled: {{ result.result }}
+            </span>
+            <span *ngIf="!result.isNumeric">
+                {{index+1}}) {{result.type}} rolled: {{ result.resultLabel }}
+            </span>
     </div>
 </div>
