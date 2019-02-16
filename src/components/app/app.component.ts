@@ -2,6 +2,7 @@ import { CustomSymbolicDice } from './../../models/customSymbolicDice.model';
 import { Component, OnInit } from '@angular/core';
 import { DiceResult } from '../../models/diceResult.model';
 import { CustomNumericDice } from '../../models/customNumericDice.model';
+import { DiceService } from '../../services/dice.service';
 
 @Component({
   selector: 'App',
@@ -10,11 +11,13 @@ import { CustomNumericDice } from '../../models/customNumericDice.model';
 export class AppComponent implements OnInit {
 
   public results: DiceResult[] = [];
+  public diceService = new DiceService();
   public openCategory: string = 'dnd';
   public customNumberDice: CustomNumericDice[] = [];
 
   //Fudge dice
-  public fudgeDice: CustomSymbolicDice = new CustomSymbolicDice('fudge', ['-', 'blank', '+'])
+  public fudgeDice: CustomSymbolicDice = new CustomSymbolicDice('fudge', ['-', 'blank', '+']);
+  public coinDice: CustomSymbolicDice =  new CustomSymbolicDice('coin', ['heads', 'tails']);
 
   //Modal fields
   public modalOpen: boolean = false;
@@ -57,18 +60,12 @@ export class AppComponent implements OnInit {
   }
 
   private rollSymbolicDice(type: string): void {
-    let index: number = -9000;
-    let symbol: string = 'default symbol';
-
     switch (type) {
-      case 'Fudge': index = this.randomNumber(0, this.fudgeDice.symbols.length - 1);
-                    symbol = this.fudgeDice.symbols[index];
+      case 'Fudge': this.results.unshift(this.diceService.rollCustomSymbolicDice(this.fudgeDice));
+                    break;
+      case 'Coin': this.results.unshift(this.diceService.rollCustomSymbolicDice(this.coinDice));
                     break;
       default: console.warn('Invalid dice type ', type);
-    }
-
-    if (index != -9000) {
-      this.results.unshift(new DiceResult(type, index, 1, 0, false, symbol));
     }
   }
 
@@ -91,9 +88,7 @@ export class AppComponent implements OnInit {
   }
 
   public rollRandomNumeric(index: number): void {
-    let dice: CustomNumericDice = this.customNumberDice[index];
-    let result: number = this.randomNumber(dice.min, dice.max);
-    this.results.unshift(new DiceResult(dice.name, result));
+    this.results.unshift(this.diceService.rollCustomNumericDice(this.customNumberDice[index]));
   }
 
   public closeModal(): void {
