@@ -55,7 +55,7 @@ export class AppComponent implements OnInit {
     }
 
     if (result != -9000) {
-      this.results.unshift(new DiceResult(type, result));
+      this.results.unshift(new DiceResult(type, [result]));
     }
   }
 

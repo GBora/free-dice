@@ -1,10 +1,17 @@
 <div class="roll-result">
     <div *ngIf="result">
             <span *ngIf="result.isNumeric">
-                {{index+1}}) {{result.type}} rolled: {{ result.result }}
+                {{index+1}}) {{result.type}} rolled:
+                
+                <span *ngFor="let item of result.result" >
+                    {{ item }}
+                </span>
             </span>
             <span *ngIf="!result.isNumeric">
-                {{index+1}}) {{result.type}} rolled: {{ result.resultLabel }}
+                {{index+1}}) {{result.type}} rolled:
+                <span *ngFor="let item of result.resultLabel" >
+                    {{ item }}
+                </span
             </span>
     </div>
 </div>

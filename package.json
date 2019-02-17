@@ -1,8 +1,8 @@
 {
   "name": "free-dice",
-  "productName": "free-dice",
+  "productName": "Free Dice",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "A free dice roller to be used for PRG",
   "main": "src/index.ts",
   "scripts": {
     "start": "electron-forge start",
