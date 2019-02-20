@@ -9,8 +9,8 @@
             </span>
             <span *ngIf="!result.isNumeric">
                 {{index+1}}) {{result.type}} rolled:
-                <span *ngFor="let item of result.resultLabel" >
-                    {{ item }}
+                <span *ngFor="let item of result.resultLabel; let i = index;" >
+                    <span [hidden]="i === 0">, </span> {{ item }} 
                 </span
             </span>
     </div>

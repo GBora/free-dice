@@ -24,9 +24,9 @@ export class AppComponent implements OnInit {
   public modalMode: string = 'numeric';
 
   // Custom numric dice field
-  public custom_num_name: string = 'My D7';
+  public custom_num_name: string = 'My D13';
   public custom_num_min: number = 1;
-  public custom_num_max: number = 7;
+  public custom_num_max: number = 13;
 
   public ngOnInit() {
     if (localStorage.getItem('custom_numeric_dice')) {
@@ -41,18 +41,8 @@ export class AppComponent implements OnInit {
   public rollDice(type: string): void {
     // Hate this
     let result: number = -9000;
-
-    switch (type) {
-      case 'd2': result = this.randomNumber(1, 2); break;
-      case 'd4': result = this.randomNumber(1, 4); break;
-      case 'd6': result = this.randomNumber(1, 6); break;
-      case 'd8': result = this.randomNumber(1, 8); break;
-      case 'd10': result = this.randomNumber(1, 10); break;
-      case 'd12': result = this.randomNumber(1, 12); break;
-      case 'd20': result = this.randomNumber(1, 20); break;
-      case 'd100': result = this.randomNumber(1, 100); break;
-      default: console.warn('Invalid dice type ', type);
-    }
+    let max = Number.parseInt(type.substring(1), 10);
+    result = result = this.diceService.randomNumber(1, max);
 
     if (result != -9000) {
       this.results.unshift(new DiceResult(type, [result]));
@@ -63,14 +53,12 @@ export class AppComponent implements OnInit {
     switch (type) {
       case 'Fudge': this.results.unshift(this.diceService.rollCustomSymbolicDice(this.fudgeDice));
                     break;
+      case 'Fudge4': this.results.unshift(this.diceService.rollCustomSymbolicDice(this.fudgeDice, 4));
+                    break;
       case 'Coin': this.results.unshift(this.diceService.rollCustomSymbolicDice(this.coinDice));
                     break;
       default: console.warn('Invalid dice type ', type);
     }
-  }
-
-  private randomNumber(min: number, max: number): number {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
   public createRandomNumeric(): void {

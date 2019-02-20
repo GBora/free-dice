@@ -39,6 +39,34 @@
                         <button class="btn" id="d-2" (click)="rollDice('d2')">
                             d2
                         </button>
+
+                        <button class="btn" id="d-2" (click)="rollDice('d3')">
+                            d3
+                        </button>
+
+                        <button class="btn" id="d-2" (click)="rollDice('d5')">
+                            d5
+                        </button>
+
+                        <button class="btn" id="d-2" (click)="rollDice('d7')">
+                            d7
+                        </button>
+
+                        <button class="btn" id="d-2" (click)="rollDice('d14')">
+                            d14
+                        </button>
+
+                        <button class="btn" id="d-2" (click)="rollDice('d16')">
+                            d16
+                        </button>
+
+                        <button class="btn" id="d-2" (click)="rollDice('d24')">
+                            d24
+                        </button>
+
+                        <button class="btn" id="d-2" (click)="rollDice('d30')">
+                            d30
+                        </button>
                 
                         <button class="btn" id="d-100" (click)="rollDice('d100')">
                             d100
@@ -52,6 +80,10 @@
                     <div class="category-content" [hidden]="openCategory != 'other_symbolic'">
                         <button class="btn" (click)="rollSymbolicDice('Fudge')">
                             Fudge
+                        </button>
+
+                        <button class="btn" (click)="rollSymbolicDice('Fudge4')">
+                            4 Fudge
                         </button>
 
                         <button class="btn" (click)="rollSymbolicDice('Coin')">

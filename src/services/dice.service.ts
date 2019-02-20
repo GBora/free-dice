@@ -13,6 +13,12 @@ export class DiceService {
             symbol_array.push(symbol);
         }
 
+        symbol_array = symbol_array.sort(function(a: string, b: string){
+            if (a < b) { return -1; }
+            if (a > b) { return 1; }
+            return 0;
+        });
+
         let result: DiceResult = new DiceResult(dice.name, index_array, numberOfRolls, 0, false, symbol_array);
         return result;
     }
@@ -25,6 +31,11 @@ export class DiceService {
             num_array.push(num);
             symbol_array.push(num.toString());
         }
+        num_array = num_array.sort(function(a: number, b: number){
+            if (a < b) { return -1; }
+            if (a > b) { return 1; }
+            return 0;
+        });
         let result = new DiceResult(dice.name, num_array, numberOfRolls, 0, true, symbol_array);
         return result;
     }
