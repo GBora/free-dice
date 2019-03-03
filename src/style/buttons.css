@@ -48,3 +48,19 @@
 .btn-200 {
 	width: 200px;
 }
+
+.btn-wrapper {
+	position: relative;
+}
+
+.dlt-btn {
+	position: absolute;
+	top: 7.5px;
+	right: 5px;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.dlt-btn:hover {
+	font-weight: bold;
+} 

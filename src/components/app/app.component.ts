@@ -100,6 +100,16 @@ export class AppComponent implements OnInit {
     localStorage.setItem('custom_symbolic_dice', JSON.stringify(this.customSymbolicDice));
   }
 
+  public deleteRandomNumeric(index: number): void {
+    this.customNumberDice.splice(index, 1);
+    localStorage.setItem('custom_numeric_dice', JSON.stringify(this.customNumberDice));
+  }
+
+  public deleteRandomSymbolic(index: number): void {
+    this.customSymbolicDice.splice(index, 1);
+    localStorage.setItem('custom_symbolic_dice', JSON.stringify(this.customSymbolicDice));
+  }
+
   public rollRandomNumeric(index: number): void {
     this.results.unshift(this.diceService.rollCustomNumericDice(this.customNumberDice[index]));
   }

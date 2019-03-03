@@ -96,17 +96,23 @@
                     </div>
 
                     <div class="category-content" [hidden]="openCategory != 'custom_dice'">
-                        <button class="btn"
-                                *ngFor="let dice of customNumberDice; let i = index;"
-                                (click)="rollRandomNumeric(i)" >
-                            {{ dice.name }}
-                        </button>
+                        <div *ngFor="let dice of customNumberDice; let i = index;" 
+                              class="btn-wrapper">
+                                <button class="btn"
+                                        (click)="rollRandomNumeric(i)" >
+                                    {{ dice.name }}
+                                </button>
+                                <span class="dlt-btn" (click)="deleteRandomNumeric(i)">x</span>
+                        </div>
 
-                        <button class="btn"
-                                *ngFor="let dice of customSymbolicDice; let i = index;"
-                                (click)="rollRandomSymbolic(i)" >
-                            {{ dice.name }}
-                        </button>
+                        <div *ngFor="let dice of customSymbolicDice; let i = index;" 
+                              class="btn-wrapper">
+                              <button class="btn"
+                                        (click)="rollRandomSymbolic(i)" >
+                                    {{ dice.name }}
+                              </button>
+                              <span class="dlt-btn" (click)="deleteRandomSymbolic(i)">x</span>
+                        </div>
 
                         <button class="btn"
                                 (click)="createRandomNumeric()">
