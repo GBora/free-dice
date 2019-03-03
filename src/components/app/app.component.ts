@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   public diceService = new DiceService();
   public openCategory: string = 'dnd';
   public customNumberDice: CustomNumericDice[] = [];
+  public customSymbolicDice: CustomSymbolicDice[] = [];
 
   //Fudge dice
   public fudgeDice: CustomSymbolicDice = new CustomSymbolicDice('fudge', ['-', 'blank', '+']);
@@ -23,14 +24,22 @@ export class AppComponent implements OnInit {
   public modalOpen: boolean = false;
   public modalMode: string = 'numeric';
 
-  // Custom numric dice field
+  // Custom numric dice fields
   public custom_num_name: string = 'My D13';
   public custom_num_min: number = 1;
   public custom_num_max: number = 13;
 
+  // Custom symbolic dice fields
+  public custom_sym_name: string = 'My Symbolic Dice';
+  public custom_sym_symbols: string = 'axe,staff,dagger';
+
   public ngOnInit() {
     if (localStorage.getItem('custom_numeric_dice')) {
       this.customNumberDice = JSON.parse(localStorage.getItem('custom_numeric_dice') || '[]');
+    }
+
+    if (localStorage.getItem('custom_symbolic_dice')) {
+      this.customSymbolicDice = JSON.parse(localStorage.getItem('custom_symbolic_dice') || '[]');
     }
   }
 
@@ -69,14 +78,34 @@ export class AppComponent implements OnInit {
     this.custom_num_max = 7;
   }
 
+  public createRandomSymbolic(): void {
+    this.modalOpen = true;
+    this.modalMode = 'symbolic';
+    this.custom_sym_name = 'My Symbolic Dice';
+    this.custom_sym_symbols = 'axe,staff,dagger';
+  }
+
   public saveRandomNumeric(): void {
     this.modalOpen = false;
     this.customNumberDice.push(new CustomNumericDice(this.custom_num_min, this.custom_num_max, this.custom_num_name));
     localStorage.setItem('custom_numeric_dice', JSON.stringify(this.customNumberDice));
   }
 
+  public saveRandomSymbolic(): void {
+    this.modalOpen = false;
+    let symbols: string[] = this.custom_sym_symbols.split(',');
+    this.customSymbolicDice.push(
+      new CustomSymbolicDice(this.custom_sym_name, symbols)
+    );
+    localStorage.setItem('custom_symbolic_dice', JSON.stringify(this.customSymbolicDice));
+  }
+
   public rollRandomNumeric(index: number): void {
     this.results.unshift(this.diceService.rollCustomNumericDice(this.customNumberDice[index]));
+  }
+
+  public rollRandomSymbolic(index: number): void {
+    this.results.unshift(this.diceService.rollCustomSymbolicDice(this.customSymbolicDice[index]));
   }
 
   public closeModal(): void {

@@ -103,11 +103,18 @@
                         </button>
 
                         <button class="btn"
+                                *ngFor="let dice of customSymbolicDice; let i = index;"
+                                (click)="rollRandomSymbolic(i)" >
+                            {{ dice.name }}
+                        </button>
+
+                        <button class="btn"
                                 (click)="createRandomNumeric()">
                             Custom Numeric
                         </button>
                 
-                        <button class="btn">
+                        <button class="btn"
+                                (click)="createRandomSymbolic()">
                             Custom Symbolic
                         </button>
 
@@ -141,7 +148,7 @@
               <div class="close-container">
                 <span class="close" (click)="closeModal()">&times;</span>
               </div>
-              <div id="custom-numeric-form">
+              <div id="custom-numeric-form" *ngIf="modalMode === 'numeric'" >
                 <div>
                     <input type="text" name="custom_num_name" placeholder="Dice name" [(ngModel)]="custom_num_name">
                 </div>
@@ -152,6 +159,17 @@
                     <input type="number" min="1" name="custom_num_max" id="custom_num_max" placeholder="Maximum" [(ngModel)]="custom_num_max">
                 </div>
                 <button class="btn btn-200" (click)="saveRandomNumeric()">
+                    Create
+                </button>
+              </div>
+              <div id="custom-numeric-form" *ngIf="modalMode === 'symbolic'" >
+                <div>
+                    <input type="text" name="custom_sym_name" placeholder="Dice name" [(ngModel)]="custom_sym_name">
+                </div>
+                <div>
+                    <input type="text" name="custom_sym_symbols" placeholder="Symbols" [(ngModel)]="custom_sym_symbols">
+                </div>
+                <button class="btn btn-200" (click)="saveRandomSymbolic()">
                     Create
                 </button>
               </div>
