@@ -22,7 +22,7 @@
 }
 
 .roll-result {
-	height: 40px;
+	min-height: 40px;
 	box-sizing: border-box !important;
 	padding: 10px;
 	line-height: 20px;

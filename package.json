@@ -24,15 +24,14 @@
           "zip"
         ],
         "linux": [
-          "deb",
-          "rpm"
+          "deb"
         ]
       },
       "electronPackagerConfig": {
         "packageManager": "npm"
       },
       "electronWinstallerConfig": {
-        "name": "Free Dice"
+        "name": "FreeDice"
       },
       "electronInstallerDebian": {},
       "electronInstallerRedhat": {},
@@ -42,7 +41,7 @@
       },
       "windowsStoreConfig": {
         "packageName": "",
-        "name": "Free Dice"
+        "name": "FreeDice"
       }
     }
   },

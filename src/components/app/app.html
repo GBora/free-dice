@@ -131,8 +131,11 @@
                     </div>
 
                     <div class="category-content" [hidden]="openCategory != 'dice_mechanics'">
-                        <div class="coming-soon">
-                            Coming soon: dice pools, exploding dice, labeling results and modifiers.
+                        <div>
+                            <div class="input-title">
+                                Number Of Dice
+                            </div>
+                            <input type="number" class="nr_dice" name="nr_dice"  [(ngModel)]="nr_dice">
                         </div>
                     </div>
 

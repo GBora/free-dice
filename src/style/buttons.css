@@ -64,3 +64,23 @@
 .dlt-btn:hover {
 	font-weight: bold;
 } 
+
+.nr_dice {
+	background: transparent;
+	border: none !important;
+	width: calc(100% - 60px);
+	border-bottom: 1px solid #D6A01B !important;
+	margin-left: 20px;
+	color: #D6A01B;
+	margin-top: 20px;
+	padding: 10px;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+  opacity: 0;
+}
+
+.input-title {
+	margin-top: 20px;
+	text-align: center;
+}

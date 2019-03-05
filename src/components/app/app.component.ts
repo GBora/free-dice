@@ -16,6 +16,8 @@ export class AppComponent implements OnInit {
   public customNumberDice: CustomNumericDice[] = [];
   public customSymbolicDice: CustomSymbolicDice[] = [];
 
+  public nr_dice: number = 1;
+
   //Fudge dice
   public fudgeDice: CustomSymbolicDice = new CustomSymbolicDice('fudge', ['-', 'blank', '+']);
   public coinDice: CustomSymbolicDice =  new CustomSymbolicDice('coin', ['heads', 'tails']);
@@ -51,20 +53,24 @@ export class AppComponent implements OnInit {
     // Hate this
     let result: number = -9000;
     let max = Number.parseInt(type.substring(1), 10);
-    result = result = this.diceService.randomNumber(1, max);
+    let results_array: number[] = [];
+    for (let i = 0; i < this.nr_dice; i++) {
+      result = this.diceService.randomNumber(1, max);
+      results_array.push(result);
+    }
 
     if (result != -9000) {
-      this.results.unshift(new DiceResult(type, [result]));
+      this.results.unshift(new DiceResult(type, results_array, this.nr_dice));
     }
   }
 
   private rollSymbolicDice(type: string): void {
     switch (type) {
-      case 'Fudge': this.results.unshift(this.diceService.rollCustomSymbolicDice(this.fudgeDice));
+      case 'Fudge': this.results.unshift(this.diceService.rollCustomSymbolicDice(this.fudgeDice, this.nr_dice));
                     break;
-      case 'Fudge4': this.results.unshift(this.diceService.rollCustomSymbolicDice(this.fudgeDice, 4));
+      case 'Fudge4': this.results.unshift(this.diceService.rollCustomSymbolicDice(this.fudgeDice, 4 * this.nr_dice));
                     break;
-      case 'Coin': this.results.unshift(this.diceService.rollCustomSymbolicDice(this.coinDice));
+      case 'Coin': this.results.unshift(this.diceService.rollCustomSymbolicDice(this.coinDice, this.nr_dice));
                     break;
       default: console.warn('Invalid dice type ', type);
     }
@@ -111,11 +117,11 @@ export class AppComponent implements OnInit {
   }
 
   public rollRandomNumeric(index: number): void {
-    this.results.unshift(this.diceService.rollCustomNumericDice(this.customNumberDice[index]));
+    this.results.unshift(this.diceService.rollCustomNumericDice(this.customNumberDice[index], this.nr_dice));
   }
 
   public rollRandomSymbolic(index: number): void {
-    this.results.unshift(this.diceService.rollCustomSymbolicDice(this.customSymbolicDice[index]));
+    this.results.unshift(this.diceService.rollCustomSymbolicDice(this.customSymbolicDice[index], this.nr_dice));
   }
 
   public closeModal(): void {
