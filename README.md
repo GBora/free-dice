@@ -3,3 +3,5 @@
 Simple dice roller for rpg games, should work on Windows, Linux and MacOs.
 
 Based on Electron and electron forge.
+
+Site is [here](https://gbora.github.io/free-dice/)
