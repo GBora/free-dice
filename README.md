@@ -1,5 +1,7 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Simple dice roller for rpg games, should work on Windows, Linux and MacOs.
 
 Based on Electron and electron forge.
 
-Software can be used free of charge and is MIT licensed.
+Site is [here](https://gbora.github.io/free-dice/)
