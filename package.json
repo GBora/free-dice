@@ -31,7 +31,10 @@
         "packageManager": "npm"
       },
       "electronWinstallerConfig": {
-        "name": "FreeDice"
+        "name": "FreeDice",
+        "noMsi": false,
+        "title": "FreeDice",
+        "setupMsi": "FreeDiceSetup"
       },
       "electronInstallerDebian": {},
       "electronInstallerRedhat": {},
