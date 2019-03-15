@@ -11,7 +11,9 @@
     "publish": "electron-forge publish",
     "lint": "tslint src"
   },
-  "keywords": ["rpg-tool"],
+  "keywords": [
+    "rpg-tool"
+  ],
   "author": "George Bora <gpbora@gmail.com>",
   "license": "MIT",
   "config": {

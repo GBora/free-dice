@@ -16,6 +16,8 @@ export class AppComponent implements OnInit {
   public customNumberDice: CustomNumericDice[] = [];
   public customSymbolicDice: CustomSymbolicDice[] = [];
 
+  public defaultNumericDice: CustomNumericDice[] = [];
+
   public nr_dice: number = 1;
 
   //Fudge dice
