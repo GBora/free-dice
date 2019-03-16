@@ -1,7 +1,7 @@
 {
   "name": "free-dice",
   "productName": "Free Dice",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A free dice roller to be used for PRG",
   "main": "src/index.ts",
   "scripts": {

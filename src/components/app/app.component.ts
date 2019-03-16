@@ -1,3 +1,4 @@
+import { DefaultsService } from './../../services/defaults.service';
 import { CustomSymbolicDice } from './../../models/customSymbolicDice.model';
 import { Component, OnInit } from '@angular/core';
 import { DiceResult } from '../../models/diceResult.model';
@@ -16,7 +17,9 @@ export class AppComponent implements OnInit {
   public customNumberDice: CustomNumericDice[] = [];
   public customSymbolicDice: CustomSymbolicDice[] = [];
 
-  public defaultNumericDice: CustomNumericDice[] = [];
+  private defaultsService: DefaultsService =  new DefaultsService();
+
+  public defaultNumericDice: CustomNumericDice[] = this.defaultsService.getDefaultNumericDice();
 
   public nr_dice: number = 1;
 
@@ -51,19 +54,8 @@ export class AppComponent implements OnInit {
     this.openCategory = categoryName;
   }
 
-  public rollDice(type: string): void {
-    // Hate this
-    let result: number = -9000;
-    let max = Number.parseInt(type.substring(1), 10);
-    let results_array: number[] = [];
-    for (let i = 0; i < this.nr_dice; i++) {
-      result = this.diceService.randomNumber(1, max);
-      results_array.push(result);
-    }
-
-    if (result != -9000) {
-      this.results.unshift(new DiceResult(type, results_array, this.nr_dice));
-    }
+  public rollDice(index: number): void {
+    this.results.unshift(this.diceService.rollCustomNumericDice(this.defaultNumericDice[index], this.nr_dice));
   }
 
   private rollSymbolicDice(type: string): void {
