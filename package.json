@@ -1,8 +1,8 @@
 {
   "name": "free-dice",
   "productName": "Free Dice",
-  "version": "1.0.2",
-  "description": "A free dice roller to be used for PRG",
+  "version": "1.0.3",
+  "description": "A free dice roller to be used for RPG's",
   "main": "src/index.ts",
   "scripts": {
     "start": "electron-forge start",
@@ -29,12 +29,13 @@
         "linux": [
           "deb",
           "rpm",
-          "flatpak", 
+          "flatpak",
           "snap"
         ]
       },
       "electronPackagerConfig": {
-        "packageManager": "npm"
+        "packageManager": "npm",
+        "executableName": "free-dice"
       },
       "electronWinstallerConfig": {
         "name": "FreeDice",
